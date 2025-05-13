@@ -15,4 +15,7 @@ describe('webdemosqa', () => {
     cy.login('admin', 'admin'); // Use the custom command for login
     cy.get('.model-user > :nth-child(2) > .addlink').click();
   });
+  it('Add category webdemosqa', () => {
+      cy.addCategory('Makanan');
+    });
 });

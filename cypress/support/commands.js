@@ -31,6 +31,13 @@ Cypress.Commands.add('login', (username, password) => {
     cy.get('input[value="Log in"]').click();
   });
 
-Cypress.Commands.add('Add users', (createUsername, createPassword, verifyPassword) => {
+Cypress.Commands.add('addUsers', (createUsername, createPassword, verifyPassword) => {
     cy.login('admin', 'admin');
-  });  
+  });
+
+Cypress.Commands.add('addCategory', (nameCategory) => {
+    cy.login('admin', 'admin');
+    cy.get('#content-main > div.app-products.module > table > tbody > tr.model-category > td:nth-child(2) > a').click();
+    cy.get('#id_name').type(nameCategory); //lokasi harus dalam js path di ambil dalam kurungnya saja document.querySelector("INI YANG DIAMBIL")
+    cy.get('#category_form > div > div > input.default').click();
+  });
